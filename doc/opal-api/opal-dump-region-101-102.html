@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OPAL Dump Regions &#8212; skiboot v6.3-112-g0cfb8bdcca0e
+ documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OPAL_ELOG: Error logging" href="opal-elog-71-72-73-74-75.html" />
+    <link rel="prev" title="OPAL Console calls" href="opal-console-read-write-1-2.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="opal-elog-71-72-73-74-75.html" title="OPAL_ELOG: Error logging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="opal-console-read-write-1-2.html" title="OPAL Console calls"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-112-g0cfb8bdcca0e
+ documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="opal-dump-regions">
+<h1>OPAL Dump Regions<a class="headerlink" href="#opal-dump-regions" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define OPAL_REGISTER_DUMP_REGION            101</span>
+<span class="cp">#define OPAL_UNREGISTER_DUMP_REGION          102</span>
+
+<span class="kt">int64_t</span> <span class="nf">opal_register_dump_region</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">id</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="kt">int64_t</span> <span class="nf">opal_unregister_dump_region</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In the event of crashes, some service processors and firmware support gathering
+a limited amount of memory from a limited number of memory regions to save into
+a debug dump that can be useful for firmware and operating system developers
+in diagnosing problems. Typically, firmware and kernel log buffers are useful to
+save in a dump.</p>
+<div class="section" id="opal-register-dump-region">
+<span id="id1"></span><h2>OPAL_REGISTER_DUMP_REGION<a class="headerlink" href="#opal-register-dump-region" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define OPAL_REGISTER_DUMP_REGION            101</span>
+
+<span class="kt">int64_t</span> <span class="nf">opal_register_dump_region</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">id</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">uint64_t</span> <span class="n">size</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This call is used to register regions of memory for a service processor to capture
+when the host crashes.</p>
+<p>e.g. if an assert is hit in OPAL, a service processor will copy the region of
+memory into some kind of crash dump for further analysis.</p>
+<p>This is an OPTIONAL feature that may be unsupported, the host OS should use an
+<a class="reference internal" href="opal-check-token-80.html#opal-check-token"><span class="std std-ref">OPAL_CHECK_TOKEN</span></a> call to find out if <a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> is supported.</p>
+<p><a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> accepts 3 parameters:</p>
+<ul class="simple">
+<li>region ID</li>
+<li>address</li>
+<li>length</li>
+</ul>
+<p>There is a range of region IDs that can be used by the host OS. A host OS should
+start from OPAL_DUMP_REGION_HOST_END and work down if it wants to add a not well
+defined region to dump. Currently the only well defined region is for the host
+OS log buffer (e.g. dmesg on linux).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
+ <span class="o">*</span> <span class="n">Dump</span> <span class="n">region</span> <span class="n">ID</span> <span class="nb">range</span> <span class="n">usable</span> <span class="n">by</span> <span class="n">the</span> <span class="n">OS</span>
+ <span class="o">*/</span>
+ <span class="c1">#define OPAL_DUMP_REGION_HOST_START          0x80</span>
+ <span class="c1">#define OPAL_DUMP_REGION_LOG_BUF             0x80</span>
+ <span class="c1">#define OPAL_DUMP_REGION_HOST_END            0xFF</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> will return <a class="reference internal" href="return-codes.html#opal-unsupported"><span class="std std-ref">OPAL_UNSUPPORTED</span></a> if the call is present but
+the system doesn’t support registering regions to be dumped.</p>
+<p>In the event of being passed an invalid region ID, <a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> will
+return <a class="reference internal" href="return-codes.html#opal-parameter"><span class="std std-ref">OPAL_PARAMETER</span></a>.</p>
+<p>Systems likely have a limit as to how many regions they can support being dumped. If
+this limit is reached, <a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> will return <a class="reference internal" href="return-codes.html#opal-internal-error"><span class="std std-ref">OPAL_INTERNAL_ERROR</span></a>.</p>
+<div class="section" id="bugs">
+<h3>BUGS<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h3>
+<p>Some skiboot versions incorrectly returned <a class="reference internal" href="return-codes.html#opal-success"><span class="std std-ref">OPAL_SUCCESS</span></a> in the case of
+<a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> being supported on a platform (so the call was present)
+but the call being unsupported for some reason (e.g. on an IBM POWER7 machine).</p>
+<p>See also: <a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a></p>
+</div>
+</div>
+<div class="section" id="opal-unregister-dump-region">
+<span id="id2"></span><h2>OPAL_UNREGISTER_DUMP_REGION<a class="headerlink" href="#opal-unregister-dump-region" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define OPAL_UNREGISTER_DUMP_REGION          102</span>
+
+<span class="kt">int64_t</span> <span class="nf">opal_unregister_dump_region</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>While <a class="reference internal" href="#opal-register-dump-region"><span class="std std-ref">OPAL_REGISTER_DUMP_REGION</span></a> registers a region, <a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a>
+will unregister a region by region ID.</p>
+<p><a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a> takes one argument: the region ID.</p>
+<p>A host OS should check <a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a> is supported through a call to
+<a class="reference internal" href="opal-check-token-80.html#opal-check-token"><span class="std std-ref">OPAL_CHECK_TOKEN</span></a>.</p>
+<p>If <a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a> is called on a system where the call is present but
+unsupported, it will return <a class="reference internal" href="return-codes.html#opal-unsupported"><span class="std std-ref">OPAL_UNSUPPORTED</span></a>.</p>
+<div class="section" id="id3">
+<h3>BUGS<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Some skiboot versions incorrectly returned <a class="reference internal" href="return-codes.html#opal-success"><span class="std std-ref">OPAL_SUCCESS</span></a> in the case of
+<a class="reference internal" href="#opal-unregister-dump-region"><span class="std std-ref">OPAL_UNREGISTER_DUMP_REGION</span></a> being supported on a platform (so the call was present)
+but the call being unsupported for some reason (e.g. on an IBM POWER7 machine).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OPAL Dump Regions</a><ul>
+<li><a class="reference internal" href="#opal-register-dump-region">OPAL_REGISTER_DUMP_REGION</a><ul>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#opal-unregister-dump-region">OPAL_UNREGISTER_DUMP_REGION</a><ul>
+<li><a class="reference internal" href="#id3">BUGS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="opal-console-read-write-1-2.html"
+                        title="previous chapter">OPAL Console calls</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="opal-elog-71-72-73-74-75.html"
+                        title="next chapter">OPAL_ELOG: Error logging</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/opal-api/opal-dump-region-101-102.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="opal-elog-71-72-73-74-75.html" title="OPAL_ELOG: Error logging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="opal-console-read-write-1-2.html" title="OPAL Console calls"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-112-g0cfb8bdcca0e
+ documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2017, IBM, others.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>
