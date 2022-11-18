@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2 &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2 &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="opal-cec-power-down-5.html" title="OPAL_CEC_POWER_DOWN"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
@@ -46,7 +46,7 @@
           <div class="body" role="main">
             
   <div class="section" id="opal-cec-reboot-and-opal-cec-reboot2">
-<h1>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2<a class="headerlink" href="#opal-cec-reboot-and-opal-cec-reboot2" title="Permalink to this headline">¶</a></h1>
+<span id="opal-api-cec-reboot"></span><h1>OPAL_CEC_REBOOT and OPAL_CEC_REBOOT2<a class="headerlink" href="#opal-cec-reboot-and-opal-cec-reboot2" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define OPAL_CEC_REBOOT              6</span>
 <span class="cp">#define OPAL_CEC_REBOOT2     116</span>
 </pre></div>
@@ -156,6 +156,12 @@ will return with OPAL_UNSUPPORTED and no reboot will be triggered.</p>
 <p class="last">On platforms that don’t support fast reboot, this is equivalent to a
 normal reboot.</p>
 </dd>
+<dt>OPAL_REBOOT_MPIPL = 3</dt>
+<dd><p class="first">Request for MPIPL reboot. Firmware will reboot the system and collect
+dump.</p>
+<p class="last">On platforms that don’t support MPIPL, this is equivalent to a
+normal assert.</p>
+</dd>
 <dt>Unsupported Reboot type</dt>
 <dd>For unsupported reboot type, this function will return with
 OPAL_UNSUPPORTED and no reboot will be triggered.</dd>
@@ -237,14 +243,14 @@ variable:</p>
         <li class="right" >
           <a href="opal-cec-power-down-5.html" title="OPAL_CEC_POWER_DOWN"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

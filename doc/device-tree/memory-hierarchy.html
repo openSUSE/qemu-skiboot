@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>P9 memory hierarchy &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>P9 memory hierarchy &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="imc.html" title="IMC Device Tree Bindings"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Device Tree</a> &#187;</li> 
       </ul>
@@ -52,25 +52,22 @@ of the processor. Device tree contains memory hierarchy so that one can
 traverse from chip to DIMM like below:</p>
 <blockquote>
 <div>xscom&#64;&lt;addr&gt;/mcbist&#64;&lt;mcbist_id&gt;/mcs&#64;&lt;mcs_id&gt;/mca&#64;&lt;mca_id&gt;/dimm&#64;&lt;resource_id&gt;</div></blockquote>
-<p>Example of dimm node:
-.. code-block:: dts</p>
-<blockquote>
-<div><dl class="docutils">
-<dt><a class="reference external" href="mailto:dimm&#37;&#52;&#48;d00e">dimm<span>&#64;</span>d00e</a> {</dt>
-<dd>memory-id = &lt;0xc&gt;; /* DRAM Device Type. 0xc = DDR4 <em>/
-product-version = &lt;0x32&gt;; /</em> Module Revision Code <em>/
-device_type = “memory-dimm-ddr4”;
-serial-number = &lt;0x15d9ad1c&gt;;
-status = “okay”;
-size = &lt;0x4000&gt;;
-phandle = &lt;0xd2&gt;;
-ibm,loc-code = “UOPWR.0000000-Node0-DIMM14”;
-part-number = “36ASF2G72PZ-2G6B2   “;
-reg = &lt;0xd00e&gt;;
-manufacturer-id = &lt;0x802c&gt;; /</em> Vendor ID, we can get vendor name from this ID <a href="#id1"><span class="problematic" id="id2">*</span></a>/</dd>
-</dl>
-<p>};</p>
-</div></blockquote>
+<p>Example of dimm node:</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nc">dimm</span><span class="nf">@d00e</span> <span class="p">{</span>
+        <span class="nf">memory-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0xc</span><span class="p">&gt;;</span> <span class="cm">/* DRAM Device Type. 0xc = DDR4 */</span>
+        <span class="nf">product-version</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x32</span><span class="p">&gt;;</span> <span class="cm">/* Module Revision Code */</span>
+        <span class="nf">device_type</span> <span class="o">=</span> <span class="s">&quot;memory-dimm-ddr4&quot;</span><span class="p">;</span>
+        <span class="nf">serial-number</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x15d9ad1c</span><span class="p">&gt;;</span>
+        <span class="nf">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>
+        <span class="nf">size</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x4000</span><span class="p">&gt;;</span>
+        <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0xd2</span><span class="p">&gt;;</span>
+        <span class="nf">ibm,loc-code</span> <span class="o">=</span> <span class="s">&quot;UOPWR.0000000-Node0-DIMM14&quot;</span><span class="p">;</span>
+        <span class="nf">part-number</span> <span class="o">=</span> <span class="s">&quot;36ASF2G72PZ-2G6B2   &quot;</span><span class="p">;</span>
+        <span class="nf">reg</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0xd00e</span><span class="p">&gt;;</span>
+        <span class="nf">manufacturer-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x802c</span><span class="p">&gt;;</span> <span class="cm">/* Vendor ID, we can get vendor name from this ID */</span>
+<span class="p">};</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -120,14 +117,14 @@ manufacturer-id = &lt;0x802c&gt;; /</em> Vendor ID, we can get vendor name from 
         <li class="right" >
           <a href="imc.html" title="IMC Device Tree Bindings"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Device Tree</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

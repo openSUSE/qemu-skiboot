@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ibm,secureboot &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>ibm,secureboot &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="ibm,opal/sysparams.html" title="sysparams"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Device Tree</a> &#187;</li> 
       </ul>
@@ -72,6 +72,29 @@ hw-key-hash:        hash of the three hardware public keys trusted by the
                     code is signed with trusted keys.
 
 hw-key-hash-size:   hw-key-hash size
+
+os-secureboot-enforcing:
+                    this property is created by the secure variable backend
+                    if it detects a desire by the owner to requre any
+                    images (e.g. kernels) to be signed by an appropriate
+                    key stored in secure variables.
+
+physical-presence-asserted:
+                    this property exists to indicate the physical presence
+                    of user to request key clearance.
+
+clear-os-keys:      this property exists when the firmware indicates that
+                    physical presence is asserted to clear only Host OS
+                    secure boot keys.
+
+clear-all-keys:     this property exists when the firmware indicates that
+                    physical presence is asserted to clear all sensistive
+                    data controlled by platform firmware.
+
+clear-mfg-keys:     this property exists only during manufacturing process
+                    when the firmware indicates to clear all senstive data
+                    during manufacturing. It is only valid on development
+                    drivers.
 </pre></div>
 </div>
 </div>
@@ -158,14 +181,14 @@ hw-key-hash-size:   hw-key-hash size
         <li class="right" >
           <a href="ibm,opal/sysparams.html" title="sysparams"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Device Tree</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

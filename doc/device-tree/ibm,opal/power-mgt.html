@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ibm,opal/power-mgt device tree entries &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>ibm,opal/power-mgt device tree entries &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="oppanel.html" title="Operator Panel (oppanel)"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Device Tree</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../ibm,opal.html" accesskey="U">ibm,opal</a> &#187;</li> 
@@ -149,7 +149,10 @@ specified in the ibm,pstate-ids file.</p>
 <div class="section" id="ibm-pstate-ultra-turbo-ibm-pstate-turbo">
 <h2>ibm,pstate-ultra-turbo ibm,pstate-turbo<a class="headerlink" href="#ibm-pstate-ultra-turbo-ibm-pstate-turbo" title="Permalink to this headline">¶</a></h2>
 <p>These properties are added when ultra-turbo(WOF) is enabled. These properties
-give the max turbo and max ultra-turbo pstate.</p>
+give the max turbo and max ultra-turbo pstate-id as specified in the
+ibm,pstate-ids file. The frequencies present in turbo to ultra-turbo range are
+referred to as boost/WOF frequencies and these are attained by the CPU under
+favourable environmental conditions, low workloads and low active core counts.</p>
 <p>Example:</p>
 <div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nc">power-mgt</span> <span class="p">{</span>
       <span class="nf">ibm,pstate-core-max</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span><span class="p">&gt;;</span>
@@ -163,6 +166,13 @@ give the max turbo and max ultra-turbo pstate.</p>
 <h2>ibm,pstate-core-max<a class="headerlink" href="#ibm-pstate-core-max" title="Permalink to this headline">¶</a></h2>
 <p>This property is added when ultra_turbo(WOF) is enabled. This property gives
 the list of max pstate for each ‘n’ number of active cores in the chip.</p>
+</div>
+<div class="section" id="ibm-pstate-base">
+<h2>ibm,pstate-base<a class="headerlink" href="#ibm-pstate-base" title="Permalink to this headline">¶</a></h2>
+<p>This pstate points to the base frequency of the chip. POWER9 base frequency is
+the highest frequency that is guaranteed when ALL cores are active in ANY
+operating condition (ie. workloads, environmental conditions such as max
+ambient temperature, active core counts)</p>
 </div>
 </div>
 
@@ -183,6 +193,7 @@ the list of max pstate for each ‘n’ number of active cores in the chip.</p>
 <li><a class="reference internal" href="#ibm-pstate-max-ibm-pstate-min-ibm-pstate-nominal">ibm,pstate-max ibm,pstate-min ibm,pstate-nominal</a></li>
 <li><a class="reference internal" href="#ibm-pstate-ultra-turbo-ibm-pstate-turbo">ibm,pstate-ultra-turbo ibm,pstate-turbo</a></li>
 <li><a class="reference internal" href="#ibm-pstate-core-max">ibm,pstate-core-max</a></li>
+<li><a class="reference internal" href="#ibm-pstate-base">ibm,pstate-base</a></li>
 </ul>
 </li>
 </ul>
@@ -228,7 +239,7 @@ the list of max pstate for each ‘n’ number of active cores in the chip.</p>
         <li class="right" >
           <a href="oppanel.html" title="Operator Panel (oppanel)"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="../../index.html">skiboot d6d8386
  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Device Tree</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../ibm,opal.html" >ibm,opal</a> &#187;</li> 
@@ -236,7 +247,7 @@ the list of max pstate for each ‘n’ number of active cores in the chip.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SkiBoot Documentation &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>SkiBoot Documentation &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,7 +30,7 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="#">skiboot d6d8386
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -70,6 +70,7 @@
 <li class="toctree-l1"><a class="reference internal" href="platforms-and-cpus.html">Supported platforms &amp; CPUs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="platforms-and-cpus.html#cpus">CPUs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="platforms-and-cpus.html#platforms">Platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platforms-and-cpus.html#dropped-platforms">Dropped Platforms</a></li>
 </ul>
 </li>
 </ul>
@@ -193,6 +194,15 @@
 <li class="toctree-l2"><a class="reference internal" href="power-management.html#debugging">Debugging</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="mpipl.html">MPIPL (aka FADUMP) Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mpipl.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpipl.html#initiating-dump">Initiating dump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpipl.html#dump-collection">Dump collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpipl.html#mpipl-boot">MPIPL boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpipl.html#device-tree">Device tree</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vas.html">Virtual Accelerator Switchboard (VAS)</a></li>
 </ul>
 </div>
 </div>
@@ -268,6 +278,10 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-lpc-read-write-67-68.html">OPAL_LPC_READ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-lpc-read-write-67-68.html#opal-lpc-write">OPAL_LPC_WRITE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-messages.html">OPAL_MESSAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-mpipl-173-174.html">OPAL MPIPL APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-mpipl-173-174.html#opal-mpipl-update">OPAL_MPIPL_UPDATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-mpipl-173-174.html#opal-mpipl-register-tag">OPAL_MPIPL_REGISTER_TAG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-mpipl-173-174.html#opal-mpipl-query-tag">OPAL_MPIPL_QUERY_TAG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-nmmu-set-ptcr-127.html">OPAL_NMMU_SET_PTCR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-npu2-146-147-148.html">OPAL NPU2 calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-npu2-get-set-relaxed-order-168-169.html">OPAL_NPU_SET_RELAXED_ORDER</a></li>
@@ -310,6 +324,8 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-power-state-121.html">OPAL_PCI_SET_POWER_STATE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-set-xive-pe-37.html">OPAL_PCI_SET_XIVE_PE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-pci-tce-kill-126.html">OPAL_PCI_TCE_KILL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-phb-flag-set-get-179-180.html">OPAL_PHB_SET_OPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-phb-flag-set-get-179-180.html#opal-phb-get-option">OPAL_PHB_GET_OPTION</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-poll-events.html">OPAL_POLL_EVENTS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-power-shift-ratio.html">OPAL Power Shift Ratio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-powercap.html">OPAL Power Caps</a></li>
@@ -320,6 +336,10 @@
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-reinit-cpus-70.html">OPAL_REINIT_CPUS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-resync-timebase-79.html">OPAL_RESYNC_TIMEBASE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-rtc-read-write-3-4.html">OPAL Real Time Clock (RTC) APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-secvar.html">OPAL Secure Variable API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-secvar.html#opal-secvar-get">OPAL_SECVAR_GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-secvar.html#opal-secvar-get-next">OPAL_SECVAR_GET_NEXT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opal-api/opal-secvar.html#opal-secvar-enqueue-update">OPAL_SECVAR_ENQUEUE_UPDATE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-sensor-group-enable-clear-163-156.html">OPAL Sensor Groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-sensor-read-88.html">OPAL_SENSOR_READ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="opal-api/opal-sensor-read-88.html#opal-sensor-read-u64">OPAL_SENSOR_READ_U64</a></li>
@@ -413,6 +433,8 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.0-rc4.html">skiboot-5.4.0-rc4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.1.html">skiboot-5.4.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.10.html">skiboot-5.4.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.11.html">skiboot-5.4.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.12.html">skiboot-5.4.12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.2.html">skiboot-5.4.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.3.html">skiboot-5.4.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-5.4.4.html">skiboot-5.4.4</a></li>
@@ -464,6 +486,10 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.19.html">skiboot-6.0.19</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.2.html">skiboot-6.0.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.20.html">skiboot-6.0.20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.21.html">skiboot-6.0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.22.html">skiboot-6.0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.23.html">skiboot-6.0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.24.html">skiboot-6.0.24</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.3.html">skiboot-6.0.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.4.html">skiboot-6.0.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.0.5.html">skiboot-6.0.5</a></li>
@@ -485,6 +511,30 @@
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3-rc2.html">skiboot-6.3-rc2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3-rc3.html">skiboot-6.3-rc3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3.1.html">skiboot-6.3.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3.2.html">skiboot-6.3.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3.3.html">skiboot-6.3.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3.4.html">skiboot-6.3.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.3.5.html">skiboot-6.3.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.4.html">skiboot-6.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.4-rc1.html">skiboot-6.4-rc1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.5.html">skiboot-6.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.5.1.html">skiboot-6.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.5.2.html">skiboot-6.5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.5.3.html">skiboot-6.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.5.4.html">skiboot-6.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.html">skiboot-6.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.1.html">skiboot-6.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.2.html">skiboot-6.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.3.html">skiboot-6.6.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.4.html">skiboot-6.6.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.6.6.html">skiboot-6.6.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.7.html">skiboot-6.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.7.1.html">skiboot-6.7.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.7.2.html">skiboot-6.7.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.7.3.html">skiboot-6.7.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.8.html">skiboot-6.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-6.8.1.html">skiboot-6.8.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release-notes/skiboot-7.0.html">skiboot-7.0</a></li>
 </ul>
 </li>
 </ul>
@@ -545,13 +595,13 @@
         <li class="right" >
           <a href="overview.html" title="Skiboot overview"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="#">skiboot d6d8386
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

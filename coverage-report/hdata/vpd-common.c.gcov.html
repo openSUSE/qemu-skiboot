@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2015-11-11 16:28:11</td>
+            <td class="headerValue">2022-11-18 15:06:37</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntry">4</td>
-            <td class="headerCovTableEntryMed">75.0 %</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntryHi">-</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -69,44 +69,31 @@
       <td>
 <pre class="sourceHeading">           Branch data     Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span>                :            : /* Copyright 2013-2014 IBM Corp.</a>
-<span class="lineNum">       2 </span>                :            :  *
-<span class="lineNum">       3 </span>                :            :  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-<span class="lineNum">       4 </span>                :            :  * you may not use this file except in compliance with the License.
-<span class="lineNum">       5 </span>                :            :  * You may obtain a copy of the License at
-<span class="lineNum">       6 </span>                :            :  *
-<span class="lineNum">       7 </span>                :            :  *      http://www.apache.org/licenses/LICENSE-2.0
-<span class="lineNum">       8 </span>                :            :  *
-<span class="lineNum">       9 </span>                :            :  * Unless required by applicable law or agreed to in writing, software
-<span class="lineNum">      10 </span>                :            :  * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-<span class="lineNum">      11 </span>                :            :  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-<span class="lineNum">      12 </span>                :            :  * implied.
-<span class="lineNum">      13 </span>                :            :  * See the License for the specific language governing permissions and
-<span class="lineNum">      14 </span>                :            :  * limitations under the License.
-<span class="lineNum">      15 </span>                :            :  */
-<span class="lineNum">      16 </span>                :            : 
-<span class="lineNum">      17 </span>                :            : #include &lt;skiboot.h&gt;
-<span class="lineNum">      18 </span>                :            : #include &lt;vpd.h&gt;
-<span class="lineNum">      19 </span>                :            : #include &lt;string.h&gt;
-<span class="lineNum">      20 </span>                :            : #include &lt;device.h&gt;
-<span class="lineNum">      21 </span>                :            : 
-<span class="lineNum">      22 </span>                :            : static const struct machine_info machine_table[] = {
-<span class="lineNum">      23 </span>                :            :         {&quot;8247-21L&quot;, &quot;IBM Power System S812L&quot;},
-<span class="lineNum">      24 </span>                :            :         {&quot;8247-22L&quot;, &quot;IBM Power System S822L&quot;},
-<span class="lineNum">      25 </span>                :            :         {&quot;8247-24L&quot;, &quot;IBM Power System S824L&quot;},
-<span class="lineNum">      26 </span>                :            :         {&quot;8286-41A&quot;, &quot;IBM Power System S814&quot;},
-<span class="lineNum">      27 </span>                :            :         {&quot;8286-22A&quot;, &quot;IBM Power System S822&quot;},
-<span class="lineNum">      28 </span>                :            :         {&quot;8286-42A&quot;, &quot;IBM Power System S824&quot;},
-<a name="29"><span class="lineNum">      29 </span>                :            : };</a>
-<span class="lineNum">      30 </span>                :            : 
-<span class="lineNum">      31 </span>                :<span class="lineCov">          2 : const struct machine_info *machine_info_lookup(char *mtm)</span>
-<span class="lineNum">      32 </span>                :            : {
-<span class="lineNum">      33 </span>                :            :         int i;
-<span class="lineNum">      34 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :         for(i = 0; i &lt; ARRAY_SIZE(machine_table); i++)</span>
-<span class="lineNum">      35 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">          4 :                 if (!strcmp(machine_table[i].mtm, mtm))</span>
-<span class="lineNum">      36 </span>                :<span class="lineCov">          2 :                         return &amp;machine_table[i];</span>
-<span class="lineNum">      37 </span>                :<span class="lineNoCov">          0 :         return NULL;</span>
-<span class="lineNum">      38 </span>                :            : }
+<a name="1"><span class="lineNum">       1 </span>                :            : // SPDX-License-Identifier: Apache-2.0 OR GPL-2.0-or-later</a>
+<a name="2"><span class="lineNum">       2 </span>                :            : /* Copyright 2013-2017 IBM Corp. */</a>
+<a name="3"><span class="lineNum">       3 </span>                :            : </a>
+<a name="4"><span class="lineNum">       4 </span>                :            : #include &lt;skiboot.h&gt;</a>
+<a name="5"><span class="lineNum">       5 </span>                :            : #include &lt;vpd.h&gt;</a>
+<a name="6"><span class="lineNum">       6 </span>                :            : #include &lt;string.h&gt;</a>
+<a name="7"><span class="lineNum">       7 </span>                :            : #include &lt;device.h&gt;</a>
+<a name="8"><span class="lineNum">       8 </span>                :            : </a>
+<a name="9"><span class="lineNum">       9 </span>                :            : static const struct machine_info machine_table[] = {</a>
+<a name="10"><span class="lineNum">      10 </span>                :            :         {&quot;8247-21L&quot;, &quot;IBM Power System S812L&quot;},</a>
+<a name="11"><span class="lineNum">      11 </span>                :            :         {&quot;8247-22L&quot;, &quot;IBM Power System S822L&quot;},</a>
+<a name="12"><span class="lineNum">      12 </span>                :            :         {&quot;8247-24L&quot;, &quot;IBM Power System S824L&quot;},</a>
+<a name="13"><span class="lineNum">      13 </span>                :            :         {&quot;8286-41A&quot;, &quot;IBM Power System S814&quot;},</a>
+<a name="14"><span class="lineNum">      14 </span>                :            :         {&quot;8286-22A&quot;, &quot;IBM Power System S822&quot;},</a>
+<a name="15"><span class="lineNum">      15 </span>                :            :         {&quot;8286-42A&quot;, &quot;IBM Power System S824&quot;},</a>
+<a name="16"><span class="lineNum">      16 </span>                :            : };</a>
+<a name="17"><span class="lineNum">      17 </span>                :            : </a>
+<a name="18"><span class="lineNum">      18 </span>                :<span class="lineCov">          2 : const struct machine_info *machine_info_lookup(const char *mtm)</span></a>
+<a name="19"><span class="lineNum">      19 </span>                :            : {</a>
+<a name="20"><span class="lineNum">      20 </span>                :            :         int i;</a>
+<a name="21"><span class="lineNum">      21 </span>                :<span class="lineCov">          6 :         for(i = 0; i &lt; ARRAY_SIZE(machine_table); i++)</span></a>
+<a name="22"><span class="lineNum">      22 </span>                :<span class="lineCov">          6 :                 if (!strcmp(machine_table[i].mtm, mtm))</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">          2 :                         return &amp;machine_table[i];</span></a>
+<a name="24"><span class="lineNum">      24 </span>                :<span class="lineNoCov">          0 :         return NULL;</span></a>
+<a name="25"><span class="lineNum">      25 </span>                :            : }</a>
 </pre>
       </td>
     </tr>
@@ -115,7 +102,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.11</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
   </table>
   <br>
 

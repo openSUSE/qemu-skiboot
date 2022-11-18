@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Supported platforms &amp; CPUs &#8212; skiboot v6.3-190-g9cae036fafea
+    <title>Supported platforms &amp; CPUs &#8212; skiboot d6d8386
  documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="opal-spec.html" title="OPAL Specification"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot d6d8386
  documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -51,9 +51,9 @@
 <h2>CPUs<a class="headerlink" href="#cpus" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="29%" />
-<col width="29%" />
-<col width="41%" />
+<col width="28%" />
+<col width="28%" />
+<col width="43%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
@@ -72,7 +72,7 @@
 </tr>
 <tr class="row-even"><td>Power8NVL</td>
 <td>0x004cxxxx</td>
-<td>Naples</td>
+<td>Naples (P8 with NVLink)</td>
 </tr>
 <tr class="row-odd"><td>Power9N</td>
 <td>0x004e0xxx</td>
@@ -93,6 +93,10 @@
 <tr class="row-odd"><td>Power9P</td>
 <td>0x004fxxxx</td>
 <td>Axone</td>
+</tr>
+<tr class="row-even"><td>Power10</td>
+<td>0x0080xxxx</td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -134,15 +138,15 @@
 <td>Wistron, IBM</td>
 <td>“ibm,firestone”</td>
 <td>Firestone, S822LC</td>
-<td><a class="footnote-reference" href="#id10" id="id1">[1]</a></td>
+<td><a class="footnote-reference" href="#id11" id="id1">[1]</a></td>
 </tr>
 <tr class="row-even"><td>astbmc</td>
 <td>garrison</td>
-<td>Power8</td>
+<td>Power8NVL</td>
 <td>IBM</td>
 <td>“ibm,garrison”</td>
 <td>Minsky, “S822LC for HPC”</td>
-<td><a class="footnote-reference" href="#id11" id="id2">[2]</a></td>
+<td><a class="footnote-reference" href="#id12" id="id2">[2]</a></td>
 </tr>
 <tr class="row-odd"><td>astbmc</td>
 <td>habanero</td>
@@ -158,7 +162,7 @@
 <td>Supermicro</td>
 <td>“supermicro,p8dtu1u”</td>
 <td>Briggs, “S822LC for Big Data”</td>
-<td><a class="footnote-reference" href="#id12" id="id3">[3]</a> <a class="footnote-reference" href="#id14" id="id4">[4]</a></td>
+<td><a class="footnote-reference" href="#id13" id="id3">[3]</a> <a class="footnote-reference" href="#id15" id="id4">[4]</a></td>
 </tr>
 <tr class="row-odd"><td>astbmc</td>
 <td>p8dtu</td>
@@ -166,25 +170,17 @@
 <td>Supermicro</td>
 <td>“supermicro,p8dtu2u”</td>
 <td>Stratton, S821LC</td>
-<td><a class="footnote-reference" href="#id15" id="id5">[5]</a> <a class="footnote-reference" href="#id17" id="id6">[6]</a></td>
+<td><a class="footnote-reference" href="#id16" id="id5">[5]</a> <a class="footnote-reference" href="#id18" id="id6">[6]</a></td>
 </tr>
 <tr class="row-even"><td>astbmc</td>
 <td>p8dnu</td>
-<td>Power8</td>
+<td>Power8NVL</td>
 <td>Supermicro</td>
 <td>“supermicro,p8dnu(1u|2u)?”</td>
 <td>&#160;</td>
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>astbmc</td>
-<td>p9sdu</td>
-<td>Power9</td>
-<td>Supermicro</td>
-<td>“supermicro,p9dsu”</td>
-<td>Boston, LC921/LC922</td>
-<td><a class="footnote-reference" href="#id18" id="id7">[7]</a></td>
-</tr>
-<tr class="row-even"><td>astbmc</td>
 <td>palmetto</td>
 <td>Power8</td>
 <td>Tyan</td>
@@ -192,61 +188,21 @@
 <td>Palmetto, GN70-BP010</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>astbmc</td>
-<td>romulus</td>
-<td>Power9</td>
-<td>&#160;</td>
-<td>“ibm,romulus”</td>
-<td>Romulus</td>
-<td>&#160;</td>
-</tr>
 <tr class="row-even"><td>astbmc</td>
 <td>vesnin</td>
-<td>Power9</td>
+<td>Power8</td>
 <td>Yadro</td>
 <td>“YADRO,vesnin”</td>
 <td>VESNIN</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td>astbmc</td>
-<td>witherspoon</td>
-<td>Power9</td>
-<td>&#160;</td>
-<td>“ibm,witherspoon”</td>
-<td>Witherspoon, Newell, AC922</td>
-<td><a class="footnote-reference" href="#id19" id="id8">[8]</a></td>
-</tr>
-<tr class="row-even"><td>astbmc</td>
-<td>zaius</td>
-<td>Power9</td>
-<td>Ingrasys (Foxconn)</td>
-<td>“ingrasys,zaius”</td>
-<td>Zaius, Google Machine</td>
-<td>&#160;</td>
-</tr>
 <tr class="row-odd"><td>ibm-fsp</td>
-<td>apollo</td>
-<td>Power8</td>
-<td>&#160;</td>
-<td>“ibm,apollo”</td>
-<td>&#160;</td>
-<td>&#160;</td>
-</tr>
-<tr class="row-even"><td>ibm-fsp</td>
 <td>firenze</td>
 <td>Power8E</td>
 <td>IBM</td>
 <td>“ibm,firenze”</td>
 <td>Tuleta, S812L, S822L</td>
-<td><a class="footnote-reference" href="#id20" id="id9">[9]</a></td>
-</tr>
-<tr class="row-odd"><td>ibm-fsp</td>
-<td>zz</td>
-<td>Power9</td>
-<td>&#160;</td>
-<td>“ibm,zz-(1|2)s(2|4)u”</td>
-<td>&#160;</td>
-<td>&#160;</td>
+<td><a class="footnote-reference" href="#id19" id="id7">[7]</a></td>
 </tr>
 <tr class="row-even"><td>rhesus</td>
 <td>n/a</td>
@@ -258,59 +214,238 @@
 </tr>
 </tbody>
 </table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="10%" />
+<col width="16%" />
+<col width="23%" />
+<col width="26%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Platform</th>
+<th class="head">Sub platform</th>
+<th class="head">Host CPU(s)</th>
+<th class="head">Manufacturer</th>
+<th class="head">compatible</th>
+<th class="head">Other names/Notes</th>
+<th class="head">Link(s)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>astbmc</td>
+<td>p9sdu</td>
+<td>Power9N</td>
+<td>Supermicro</td>
+<td>“supermicro,p9dsu”</td>
+<td>Boston, LC921/LC922</td>
+<td><a class="footnote-reference" href="#id20" id="id8">[8]</a></td>
+</tr>
+<tr class="row-odd"><td>astbmc</td>
+<td>romulus</td>
+<td>Power9N</td>
+<td>&#160;</td>
+<td>“ibm,romulus”</td>
+<td>Romulus</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>astbmc</td>
+<td>talos</td>
+<td>Power9N</td>
+<td>Raptor</td>
+<td>“rcs,talos”</td>
+<td>Talos II, similar to Romulus</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>astbmc</td>
+<td>blackbird</td>
+<td>Power9N</td>
+<td>Raptor</td>
+<td>“rcs,blackbird”</td>
+<td>Blackbrid</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>astbmc</td>
+<td>witherspoon</td>
+<td>Power9N</td>
+<td>&#160;</td>
+<td>“ibm,witherspoon”</td>
+<td>Witherspoon, Newell, AC922</td>
+<td><a class="footnote-reference" href="#id21" id="id9">[9]</a></td>
+</tr>
+<tr class="row-odd"><td>astbmc</td>
+<td>zaius</td>
+<td>Power9N</td>
+<td>Ingrasys (Foxconn)</td>
+<td>“ingrasys,zaius”</td>
+<td>Zaius, Barreleye Gen2</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>astbmc</td>
+<td>mihawk</td>
+<td>Power9N</td>
+<td>&#160;</td>
+<td>“{wistron,ibm},mihawk”</td>
+<td>Mihawk, IC922</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>astbmc</td>
+<td>nicole</td>
+<td>Power9N</td>
+<td>Yadro</td>
+<td>“YADRO,nicole”</td>
+<td>Nicole</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>ibm-fsp</td>
+<td>zz</td>
+<td>Power9N</td>
+<td>&#160;</td>
+<td>“ibm,zz-(1|2)s(2|4)u”</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>astbmc</td>
+<td>swift</td>
+<td>Power9P</td>
+<td>&#160;</td>
+<td>“ibm,swift”</td>
+<td>Swift</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>astbmc</td>
+<td>mowgli</td>
+<td>Power9N</td>
+<td>Wistron</td>
+<td>“ibm,mowgli”</td>
+<td>Mowgli</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="10%" />
+<col width="16%" />
+<col width="23%" />
+<col width="26%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Platform</th>
+<th class="head">Sub platform</th>
+<th class="head">Host CPU(s)</th>
+<th class="head">Manufacturer</th>
+<th class="head">compatible</th>
+<th class="head">Other names/Notes</th>
+<th class="head">Link(s)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>astbmc</td>
+<td>rainier</td>
+<td>Power10</td>
+<td>&#160;</td>
+<td>“ibm,rainier”
+“ibm,rainier-1s4u”
+“ibm,rainier-2s2u”
+“ibm,rainier-2s4u”</td>
+<td>S1014
+S1022
+S1024</td>
+<td><a class="footnote-reference" href="#id22" id="id10">[10]</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dropped-platforms">
+<h2>Dropped Platforms<a class="headerlink" href="#dropped-platforms" title="Permalink to this headline">¶</a></h2>
+<p>Support for Power7 based systems was removed in <cite>v6.3-191-g16b7ae641037</cite>.
+Power7 hardware was supported largely because it was the initial bringup
+platform for Skiboot. Once P8 hardware became available almost all
+development (and testing) on P7 ceased. Anyone interested in using OPAL on
+a P7 should look at one of the early <cite>v5.x</cite> releases.</p>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
+<table class="docutils footnote" frame="void" id="id11" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://www.nextplatform.com/2015/10/08/ibm-back-in-hpc-with-power-systems-lc-clusters/">IBM Back In HPC With Power Systems LC Clusters</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id11" rules="none">
+<table class="docutils footnote" frame="void" id="id12" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="https://www.nextplatform.com/2016/09/08/refreshed-ibm-power-linux-systems-add-nvlink/">Refreshed IBM Power Linux Systems Add NVLink</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id12" rules="none">
+<table class="docutils footnote" frame="void" id="id13" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://www.nextplatform.com/2016/09/08/refreshed-ibm-power-linux-systems-add-nvlink/">Refreshed IBM Power Linux Systems Add NVLink</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id14" rules="none">
+<table class="docutils footnote" frame="void" id="id15" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><a class="reference external" href="https://www.youtube.com/watch?v=TnW-NcLR28g">First Look IBM POWER8 S822LC 8001-22C (Briggs)</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id15" rules="none">
+<table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><a class="reference external" href="https://www.nextplatform.com/2016/09/08/refreshed-ibm-power-linux-systems-add-nvlink/">Refreshed IBM Power Linux Systems Add NVLink</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id17" rules="none">
+<table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td><a class="reference external" href="https://www.youtube.com/watch?v=OM3wU4Uu8LI">First Look IBM POWER8 S821LC 8001-12C (Stratton)</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id18" rules="none">
+<table class="docutils footnote" frame="void" id="id19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td><a class="reference external" href="https://www.itjungle.com/2018/05/14/boston-power9s-set-to-debut/">Boston Power9s Set To Debut</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td><a class="reference external" href="https://www.nextplatform.com/2017/12/05/power9-to-the-people/">POWER9 TO THE PEOPLE</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id20" rules="none">
+<table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id9">[9]</a></td><td><a class="reference external" href="https://www.ibm.com/au-en/marketplace/power-system-s812l-s822l">IBM Power System S812L and IBM Power System S822L</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[10]</a></td><td>` Announcing IBM Power10 Scale-Out and Midrange Servers &lt;<a class="reference external" href="https://www.ibm.com/cloud/blog/announcements/announcing-ibm-power10-scale-out-and-midrange-servers">https://www.ibm.com/cloud/blog/announcements/announcing-ibm-power10-scale-out-and-midrange-servers</a>&gt;`_</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[11]</td><td><a class="reference external" href="https://www.ibm.com/products/power-s1014">IBM Power S1014</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[12]</td><td><a class="reference external" href="https://www.ibm.com/products/power-s1022">IBM Power S1022</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id25" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[13]</td><td><a class="reference external" href="https://www.ibm.com/products/power-s1024">IBM Power S1024</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -327,6 +462,7 @@
 <li><a class="reference internal" href="#">Supported platforms &amp; CPUs</a><ul>
 <li><a class="reference internal" href="#cpus">CPUs</a></li>
 <li><a class="reference internal" href="#platforms">Platforms</a></li>
+<li><a class="reference internal" href="#dropped-platforms">Dropped Platforms</a></li>
 </ul>
 </li>
 </ul>
@@ -372,13 +508,13 @@
         <li class="right" >
           <a href="opal-spec.html" title="OPAL Specification"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot v6.3-190-g9cae036fafea
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot d6d8386
  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>
